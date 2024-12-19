@@ -111,9 +111,11 @@ func (l Limits) AsContainerResources() container.Resources {
 		OomKillDisable:    &l.OOMDisabled,
 		PidsLimit:         &pids,
 		Devices:           []container.DeviceMapping{
-			PathOnHost:        "/dev/kvm",
-			PathInContainer:   "/dev/kvm",
-			CgroupPermissions: "rwm",
+			{
+				PathOnHost:        "/dev/kvm",
+				PathInContainer:   "/dev/kvm",
+				CgroupPermissions: "rwm",
+			},
 		},
 	}
 
